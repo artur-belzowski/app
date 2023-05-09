@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+    {% block title %}Wallet{% endblock %}
+{% block content %}
+    <h1>Oblicz wartość NFT</h1>
+    <form method="POST" action="{{ url_for('ebisus') }}">
+      <label for="wallet">Podaj adres portfela:</label>
+      <input type="text" name="wallet" id="wallet" required>
+      <br>
+      <input type="submit" value="Oblicz">
+    </form>
+{% endblock %}

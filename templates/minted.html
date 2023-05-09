@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+    {% block title %}MINTED{% endblock %}
+{% block content %}
+<center>
+<div class="container">
+
+  <h2><p>Wartość dla tego portfela to {{ suma }} CRO.</p></h2>
+  <br>
+  <button onclick="window.history.go(-1);">Cofnij</button>
+
+  <h2><button onclick="window.location.href ='/ebisus'">SPRAWDŹ EBISUS</button></h2>
+  <table border=10 class="table table-bordered">
+    <CAPTION><h4>SZCZEGÓŁY</h4></CAPTION>
+        <tr ALIGN=center bgcolor="gray">
+    <thead>
+      <tr>
+        <th>Nazwa</th>
+        <th>balance</th>
+        <th>Floor Price</th>
+        <th>Wynik</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for nft in nfts_minted %}
+      <tr>
+        <td>{{ nft.name }}</td>
+        <td>{{ nft.balance }}</td>
+        {% if nft['floor_price'] is not none %}
+          <td>{{ nft['floor_price'] }}</td>
+            {% else %}
+          <td>b.d.</td>
+        {% endif %}
+        <td>{{ nft.result }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+  </center>
+{% endblock %}

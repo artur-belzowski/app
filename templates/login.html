@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+    {% block title %}LOG IN{% endblock %}
+
+{% block content %}
+    {% if error %}
+      <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+     <form method="POST" action="{{ url_for('login') }}">
+         <div>
+            <table style="background-color: silver">
+                <tr>
+                    <td>username:</td><td><input type="text" name="username" id="username"></td>
+                </tr>
+                <tr>
+                    <td>password:</td><td><input type="password" name="password" id="password"></td>
+                </tr>
+                <tr>
+                <br>
+                <td colspan="2" style="text-align: center"><br>
+                    <input type="submit" value="LOG IN">
+                </td>
+                </tr>
+            </table>
+         </div>
+     </form>
+
+{% endblock %}
